@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+    <Platform Condition="'$(Platform)'==''">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>Monja</RootNamespace>
+    <AssemblyName>Monja</AssemblyName>
+    <ProjectGuid>{82593BA8-6803-4779-B90D-72B426B9F956}</ProjectGuid>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OfficeApplication>Excel</OfficeApplication>
+    <VSTO_HostIdentifier>Excel</VSTO_HostIdentifier>
+    <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
+    <LoadBehavior>3</LoadBehavior>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <PublishUrl>..\..\dist\vsto\</PublishUrl>
+    <InstallUrl>
+    </InstallUrl>
+    <SignManifests>true</SignManifests>
+    <ManifestKeyFile>$(MonjaSigningKey)</ManifestKeyFile>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)'==''">17.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)'==''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ApplicationVersion>1.0.2.0</ApplicationVersion>
+    <OfficeVersion>16.0</OfficeVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="office">
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities">
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model.cs" />
+    <Compile Include="FormulaParser.cs" />
+    <Compile Include="VbaParser.cs" />
+    <Compile Include="ExcelScanner.cs" />
+    <Compile Include="TracePane.cs" />
+    <Compile Include="ThisAddIn.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <OfficeApplicationDescription>Excelの数式・VBA・グラフ・ピボットの変更影響を調査します。</OfficeApplicationDescription>
+    <FriendlyName>もんじゃExcel参照トレーサー</FriendlyName>
+    <GenerateManifests>true</GenerateManifests>
+    <ApplicationVersion>1.0.2.0</ApplicationVersion>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UseSharedCompilation>false</UseSharedCompilation>
+    <ProductName>Monja Excel Reference Tracer</ProductName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Compile Include="SavedVbaReader.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="..\.signing\Signing.props" Condition="Exists('..\.signing\Signing.props')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" />
+</Project>

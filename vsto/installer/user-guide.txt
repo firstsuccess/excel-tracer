@@ -1,0 +1,58 @@
+もんじゃExcel参照トレーサー / Monja Excel Reference Tracer
+
+動作環境: Windowsデスクトップ版Excel、.NET Framework 4.8以降、VSTO Runtime。
+Node.js、ローカルサーバー、AccessVBOMの変更は標準モードでは不要です。
+
+導入
+1. ZIP全体を任意のフォルダーに展開します。Excelを保存して終了してください。
+2. Setup.exeを起動し「インストール」を押します。管理者として実行する必要はありません。
+3. Officeの信頼確認で、配布元と内容を確認して許可します。自己署名版の発行元は第三者により確認されていません。
+4. Excelを起動し「もんじゃ参照トレーサー」タブを開きます。
+組織の制限で導入できない場合は管理担当者へお問い合わせください。制限を回避しないでください。
+Publisher.cerは公開証明書です。信頼されたルートへ追加する必要はありません。
+Windows SmartScreen等の警告が表示される場合があります。配布元を確認できなければ実行しないでください。
+前提ソフトの導入は組織の管理者による対応が必要な場合があります。
+
+使い方
+検索対象ブックをチェックして「再解析」を押します。同じExcelインスタンスのブックを検索します。
+「全体の依存関係一覧」で直接の依存関係を表示します。
+Excelでセルを選択し「選択セルの影響調査」に切り替え、参照する側・参照される側を指定します。
+「間接参照」で多段の参照を展開します。選択変更は前回の解析結果を使います。編集後は再解析してください。
+種類・キーワードで絞り込み、列見出しで並べ替えます。行の右クリックで参照元・参照先へ移動、場所のコピーができます。
+「CSV出力」で表示結果をUTF-8 BOM付きで保存します。「中止」で解析を止めます。
+日本語 / Englishはタスクペイン上部で切り替えます。
+右下の「診断 v1.0.2」で取得状況とエラーの発生箇所を確認できます。取得できない機能があっても取得済みの参照は表示し、解析失敗は0件と区別します。
+
+VBA
+標準モードは保存済み.xlsm/.xlam/.xlsbのVBAを読み取り専用で解析します。未保存の変更は含みません。
+拡張モードとVBA行への移動は、Excelの「VBAプロジェクトオブジェクトモデルへのアクセスを信頼する」が許可されている場合に使えます。
+設定は自動変更しません。組織で許可される場合のみ、Excelのトラストセンターで変更してください。
+保護されたVBAは読み取りません。VBAコードは実行しません。
+
+注意
+数式・名前・テーブル・グラフ系列・ピボットの通常範囲を解析します。複雑な構造化参照、動的参照、外部接続には制約があります。
+確定・推定・判定不能を区別します。判定不能はセルの影響調査の一致として扱いません。全体一覧と注意事項も確認してください。
+VBAの静的参照は実行時のブック・シートに左右されるため推定または判定不能です。
+ピボットのソースに含まれることは、現在の集計結果への反映を意味しません。
+別Excelプロセスのブックは自動検索しません。閉じたブックや権限がない場所へ移動できない場合は場所をコピーしてください。
+解析上限は数式・参照各50万件、間接参照10万件です。保存済みVBAプロジェクトは32 MiB、展開したコード合計64 MiBまでです。
+Excelファイル・数式・VBAを外部サーバーに送信しません。調査対象のファイルを変更せず、再計算やVBA実行を指示しません。
+CSVにはブック名や数式が含まれます。保存先・共有先にご注意ください。
+
+削除
+Excelを終了し、Windowsの「インストールされているアプリ」で本製品を削除するか、Setup.exeの「削除」を押します。
+言語設定は維持されます。利用者のブックは削除しません。小さなセットアップ実行ファイルがユーザーフォルダーに残ります。
+
+English
+Requires Windows desktop Excel, .NET Framework 4.8 and VSTO Runtime. Node.js is not required.
+Extract the whole ZIP, save and close Excel, run Setup.exe and choose Install. No elevation is requested.
+Review the native Office trust prompt. This package is self-signed; the publisher identity is not independently verified.
+Organizational restrictions may prevent installation. Do not bypass policy or import the certificate as a trusted root.
+Open the Monja ribbon, select target workbooks, and reanalyze. Use all dependencies or selected-cell impact in either direction.
+Right-click results to navigate/copy locations; export filtered results as UTF-8 BOM CSV. Switch Japanese/English in the pane.
+Standard VBA mode reads saved .xlsm/.xlam/.xlsb files without VBProject access and excludes unsaved edits.
+Extended mode and VBA navigation require permitted VBProject access. Trust settings are never changed automatically.
+Protected projects are refused. Macros are never executed. Workbook contents stay on your computer.
+Dynamic, structured and external references can be estimated or unknown. Unknown edges are excluded from impact matches.
+Only workbooks in the same Excel instance are enumerated. Reanalyze after edits. Cancellation retains the previous result.
+Remove the product using Windows Installed Apps or Setup.exe / Uninstall with Excel closed. Language settings are retained.

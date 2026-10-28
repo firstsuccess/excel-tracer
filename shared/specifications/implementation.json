@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "orientation": "supplier -> consumer; VBA reads: cell -> code; writes/range mutations: code -> cell",
+  "limits": {
+    "edges": 500000,
+    "fileBytes": 104857600,
+    "expandedPackageBytes": 268435456,
+    "xmlPartBytes": 67108864,
+    "liveWorksheetCells": 10000000,
+    "renderPage": 100
+  },
+  "cache": {
+    "vstoInvalidation": [
+      "SheetChange",
+      "WorkbookOpen",
+      "WorkbookBeforeClose",
+      "target selection",
+      "explicit refresh"
+    ],
+    "officejs": "snapshot retained until explicit reanalysis; selection queries never rescan workbook",
+    "caveat": "name, chart, pivot and external-link edits require explicit reanalysis"
+  },
+  "vba": {
+    "standardSavedFile": "not implemented",
+    "extended": "read-only VBProject; trust denied and protection produce diagnostics",
+    "trustSettingMutation": "not implemented; no automatic changes"
+  },
+  "vstoHostBuild": "requires Visual Studio Office development tools, Excel PIAs, VSTO Utilities, .NET Framework 4.8 targeting pack and a manifest signing certificate",
+  "productionOfficeManifest": "generate with scripts/manifests.mjs and an actual HTTPS base URL; localhost manifest is not a production deployment",
+  "manualExcelChecks": [
+    "installed VSTO host startup and ribbon",
+    "taskpane lifecycle",
+    "Office.js sideload in desktop and web",
+    "navigation",
+    "language switching",
+    "mid-scan workbook closure",
+    "protected VBA project",
+    "AccessVBOM denied",
+    "100000 formulas live Excel",
+    "large chart/pivot collections",
+    "user-scope install and uninstall"
+  ],
+  "authoritativeReferences": [
+    "https://learn.microsoft.com/en-us/javascript/api/excel/excel.range?view=excel-js-release",
+    "https://learn.microsoft.com/en-us/visualstudio/vsto/deploying-an-office-solution-by-using-clickonce?view=vs-2022",
+    "https://learn.microsoft.com/en-us/dotnet/api/microsoft.office.tools.addinbase?view=vsto-2022"
+  ]
+}

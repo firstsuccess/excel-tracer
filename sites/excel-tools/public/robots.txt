@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /trace/app/
+Sitemap: https://excel.mnoda1979.chatgpt.site/sitemap.xml

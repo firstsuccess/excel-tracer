@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="TrustFixture">
+  <!-- Developer integration fixture only. Never included in user distribution. -->
+  <UsingTask TaskName="SetInclusionListEntry" AssemblyFile="$(OfficeBuildTasks)" />
+  <Target Name="TrustFixture">
+    <Error Condition="'$(FixtureManifest)'=='' or '$(CertificateThumbprint)'==''" Text="Exact test manifest and signing certificate are required." />
+    <SetInclusionListEntry DeploymentManifestFullPath="$(FixtureManifest)" CertificateThumbprint="$(CertificateThumbprint)" />
+  </Target>
+</Project>

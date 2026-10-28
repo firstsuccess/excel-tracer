@@ -1,0 +1,6 @@
+/trace/app/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://appsforoffice.microsoft.com; connect-src 'self' https://*.office.com https://*.office365.com https://*.microsoft.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors https://*.office.com https://*.office365.com https://*.live.com https://*.microsoft.com;
+  X-Content-Type-Options: nosniff
+/downloads/*
+  Content-Disposition: attachment
+  X-Content-Type-Options: nosniff

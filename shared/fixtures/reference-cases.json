@@ -1,0 +1,1 @@
+{"book":"Book.xlsx","sheet":"入力","cases":[{"formula":"=A1","expected":"A1"},{"formula":"=$B$5","expected":"B5"},{"formula":"='Data Sheet'!A1","sheet":"Data Sheet"},{"formula":"=[Other.xlsx]Sheet1!B2","book":"Other.xlsx"},{"formula":"=INDIRECT(\"A1\")","certainty":"unknown"},{"formula":"=A1#","certainty":"estimated"},{"formula":"=\"A1\"","edges":0}]}
