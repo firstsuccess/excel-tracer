@@ -180,7 +180,10 @@ export const copy={
     "trademark": "Microsoft、ExcelはMicrosoftグループの企業の商標です。本サイトのスプレッドシートアイコンは独自の図案であり、Microsoft公式ロゴではありません。",
     "back": "ツール一覧に戻る",
     "counter": "ACCESS / アクセス数",
-    "countError": "取得できません"
+    "countError": "取得できません",
+    "sourceTitle": "ソースコードダウンロード",
+    "sourceDescription": "もんじゃExcel参照トレーサーのソースコードはGitHubで公開しています。リポジトリの「Code」→「Download ZIP」からダウンロードできます。",
+    "sourceLink": "GitHubでソースコードを開く"
   },
   "en": {
     "nav": [
@@ -363,7 +366,10 @@ export const copy={
     "trademark": "Microsoft and Excel are trademarks of the Microsoft group of companies. Our spreadsheet icon is an original design, not an official Microsoft logo.",
     "back": "Back to all tools",
     "counter": "ACCESS / Total visits",
-    "countError": "Unavailable"
+    "countError": "Unavailable",
+    "sourceTitle": "Source code download",
+    "sourceDescription": "The source code for Monja Excel Reference Tracer is available on GitHub. Select Code → Download ZIP in the repository to download it.",
+    "sourceLink": "View source code on GitHub"
   },
   "zh": {
     "nav": [
@@ -546,6 +552,9 @@ export const copy={
     "trademark": "Microsoft和Excel是Microsoft集团公司的商标。本网站的电子表格图标为原创设计，并非Microsoft官方标志。",
     "back": "返回工具列表",
     "counter": "ACCESS / 访问次数",
-    "countError": "暂不可用"
+    "countError": "暂不可用",
+    "sourceTitle": "下载源代码",
+    "sourceDescription": "Monja Excel引用追踪器的源代码已在GitHub公开。请在仓库中选择Code → Download ZIP下载。",
+    "sourceLink": "在GitHub查看源代码"
   }
 };
